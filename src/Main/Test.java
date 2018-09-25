@@ -9,12 +9,13 @@ package Main;
  *
  * @author Dhanushka
  */
-public class Main {
-    public static void addLink(Link ob){
-        
-    }
-    public static void main(String args[]){
-      Link headLink=new Link();
-      
-    }
+public class Test {
+        int y;
+        public void set(int x){
+            y=x;
+        }
+        public void method(){         
+            System.out.println(y);
+            
+        }
 }
