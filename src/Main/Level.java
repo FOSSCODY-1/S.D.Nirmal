@@ -10,44 +10,48 @@ package Main;
  * @author Dhanushka
  */
 public class Level {
+	int level;
     private Link headLink;
     private Level nextLevel;
-
+	
     public Level() {
-    }
+		super();
+	}
 
-    public Level(Link headLink, Level nextLevel) {
-        this.headLink = headLink;
-        this.nextLevel = nextLevel;
-    }
+	public Level(int level, Link headLink, Level nextLevel) {
+		super();
+		this.level = level;
+		this.headLink = headLink;
+		this.nextLevel = nextLevel;
+	}
 
-    /**
-     * @return the headLink
-     */
-    public Link getHeadLink() {
-        return headLink;
-    }
+	public int getLevel() {
+		return level;
+	}
 
-    /**
-     * @param headLink the headLink to set
-     */
-    public void setHeadLink(Link headLink) {
-        this.headLink = headLink;
-    }
+	public void setLevel(int level) {
+		this.level = level;
+	}
 
-    /**
-     * @return the nextLevel
-     */
-    public Level getNextLevel() {
-        return nextLevel;
-    }
+	public Link getHeadLink() {
+		return headLink;
+	}
 
-    /**
-     * @param nextLevel the nextLevel to set
-     */
-    public void setNextLevel(Level nextLevel) {
-        this.nextLevel = nextLevel;
-    }
+	public void setHeadLink(Link headLink) {
+		this.headLink = headLink;
+	}
+
+	public Level getNextLevel() {
+		return nextLevel;
+	}
+
+	public void setNextLevel(Level nextLevel) {
+		this.nextLevel = nextLevel;
+	}
+    
+	
+    
+    
     
     
 }
