@@ -13,6 +13,7 @@ public class Main {
 	private static Level headLevel=new Level();
 	
 	
+	
 	public static void addLink(int level,int data) {
     	Level temp1=headLevel;
     	
@@ -86,7 +87,7 @@ public class Main {
 	}
 
     public static void main(String args[]){
-    	addLevel(1);
+    	/*addLevel(1);
     	addLevel(2);
     	addLevel(3);
     	addLevel(4);
@@ -96,7 +97,24 @@ public class Main {
     	addLink(2, 4);
     	addLink(3, 2);
     	addLink(4, 5);
-    	displayAllPaths();
+    	displayAllPaths();*/
+    	
+    	Graph graph=new Graph();
+    	graph.addVertex(1);
+    	graph.addVertex(2);
+    	graph.addVertex(3);
+    	graph.addVertex(4);
+    	graph.addVertex(5);
+    	
+    	graph.displayVertices();    	
+    	
+    	graph.addEdge(1, 2);
+    	graph.addEdge(1, 4);
+    	graph.addEdge(2, 4);
+    	graph.addEdge(3, 2);
+    	graph.addEdge(4, 5);
+    	
+    	graph.displayEdges();
     	
     }
 }
