@@ -116,7 +116,9 @@ public class Main {
     	
     	//graph.displayEdges();
     	//graph.displayVertices();
-    	graph.breadthFirstTraversal();
+    	//graph.breadthFirstTraversal();
+    	graph.callDepthFirstTraversal();
+    	
     	
     }
 }

@@ -97,6 +97,7 @@ public class Graph {
 		if(levels.isEmpty()) {
 			System.out.println("No vertices on the graph yet");
 			return;
+
 		}
 		for (Vertex vertex : levels) {
 			System.out.println(vertex.getValue()+"\n");
@@ -104,50 +105,83 @@ public class Graph {
 	}
 	
 	public void breadthFirstTraversal() {
-		if(levels!=null) {
-			for (Vertex vertex : levels) {
-				vertex.setColor("WHITE");
-				vertex.setDistance(0);
-				vertex.setPredecessor(null);
-			}
-			for (Vertex vertex : levels) {
-				
-				if(!vertex.getColor().equals("BLACK")){
-					
-					vertex.setColor("GRAY");
+			if(levels!=null) {
+				for (Vertex vertex : levels) {
+					vertex.setColor("WHITE");
 					vertex.setDistance(0);
 					vertex.setPredecessor(null);
+				}
+				for (Vertex vertex : levels) {
 					
-					q.enQueue(vertex);
-					
-					while(!q.isEmpty()) {
-						//System.out.println("here");
-						Vertex u=q.deQueue();
-						int i=u.getEdgeCount();
+					if(!vertex.getColor().equals("BLACK")){
 						
-						while(i!=0) {
+						vertex.setColor("GRAY");
+						vertex.setDistance(0);
+						vertex.setPredecessor(null);
+						
+						q.enQueue(vertex);
+						
+						while(!q.isEmpty()) {
+							//System.out.println("here");
+							Vertex u=q.deQueue();
+							int i=u.getEdgeCount();
 							
-							Vertex v=u.getNextVertex();
-							
-							if(v.getColor().equals("WHITE")) {
-								v.setColor("GRAY");
-								v.setDistance(u.getDistance()+1);
-								v.setPredecessor(u);
-								q.enQueue(v);
+							while(i!=0) {
+								
+								Vertex v=u.getNextVertex();
+								
+								if(v.getColor().equals("WHITE")) {
+									v.setColor("GRAY");
+									v.setDistance(u.getDistance()+1);
+									v.setPredecessor(u);
+									q.enQueue(v);
+								}
+								i--;
+								
 							}
-							i--;
+							System.out.println(u.getValue()+"\t");
+							u.setColor("BLACK");
 							
 						}
-						System.out.println(u.getValue()+"\n");
-						u.setColor("BLACK");
 						
 					}
-					
 				}
+				
+			}else {
+				System.out.println("No vertices on the graph");
 			}
+	}
+
+
+	public void callDepthFirstTraversal() {
+		for (Vertex vertex : levels) {
+			vertex.setColor("WHITE");
+			vertex.setDistance(0);
+			vertex.setStartTime(0);
+			vertex.setEndTime(0);
+			vertex.setPredecessor(null);
+		}
+		for (Vertex vertex : levels) {
+			DepthFirstTraversal(vertex);
+		}
+	}
+
+	private void DepthFirstTraversal(Vertex u) {
+	
+		if(!u.getColor().equals("BLACK")) {
+			u.setColor("GRAY");
 			
-		}else {
-			System.out.println("No vertices on the graph");
+			int i=u.getEdgeCount();
+			while(i!=0) {
+				Vertex v=u.getNextVertex();
+				if(v.getColor().equals("WHITE")) {
+					v.setPredecessor(u);
+					DepthFirstTraversal(v);
+				}
+				i--;
+			}
+			u.setColor("BLACK");
+			System.out.println(u.getValue()+"\t");
 		}
 	}
 }
