@@ -28,6 +28,17 @@ public class Queue<T>{
 		}
 	}
 	
+	public void emptyQueue() {
+		headNode=null;
+	}
+	public boolean isEmpty() {
+		if(headNode==null) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 	private class Node{
 		T object;
 		Node next;
@@ -37,5 +48,7 @@ public class Queue<T>{
 		}
 		
 	}
+	
+	
 	
 }

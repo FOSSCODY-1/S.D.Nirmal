@@ -106,7 +106,7 @@ public class Main {
     	graph.addVertex(4);
     	graph.addVertex(5);
     	
-    	graph.displayVertices();    	
+    	//graph.displayVertices();    	
     	
     	graph.addEdge(1, 2);
     	graph.addEdge(1, 4);
@@ -114,7 +114,9 @@ public class Main {
     	graph.addEdge(3, 2);
     	graph.addEdge(4, 5);
     	
-    	graph.displayEdges();
+    	//graph.displayEdges();
+    	//graph.displayVertices();
+    	graph.breadthFirstTraversal();
     	
     }
 }

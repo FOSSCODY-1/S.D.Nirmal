@@ -2,9 +2,14 @@ package Main;
 
 import java.util.ArrayList;
 
+import javax.sound.midi.Soundbank;
+
+import Tool.Queue;
+
 public class Graph {
 	
 	private ArrayList<Vertex> levels=new ArrayList<>();
+	Queue<Vertex> q=new Queue<>();
 	
 	
 	public void addVertex(int value) {
@@ -40,14 +45,14 @@ public class Graph {
 			while(i!=0) {
 				temp=temp.getNextVertex();   
 				if(temp.equals(l)) {
-					System.out.println(v.getValue()+","+l.getValue()+"\n");
+					//System.out.println(v.getValue()+","+l.getValue()+"\n");
 					System.out.println("Edge already exists");
 					return;
 				}
 				i--;
 				
 			}
-			System.out.println(v.getValue()+","+l.getValue()+"\n");
+			//System.out.println(v.getValue()+","+l.getValue()+"\n");
 			temp.setNextVertex(l);
 			v.setEdgeCount(v.getEdgeCount()+1);
 			
@@ -87,6 +92,7 @@ public class Graph {
 			}
 		}
 	}
+	
 	public void displayVertices() {
 		if(levels.isEmpty()) {
 			System.out.println("No vertices on the graph yet");
@@ -97,4 +103,51 @@ public class Graph {
 		}
 	}
 	
+	public void breadthFirstTraversal() {
+		if(levels!=null) {
+			for (Vertex vertex : levels) {
+				vertex.setColor("WHITE");
+				vertex.setDistance(0);
+				vertex.setPredecessor(null);
+			}
+			for (Vertex vertex : levels) {
+				
+				if(!vertex.getColor().equals("BLACK")){
+					
+					vertex.setColor("GRAY");
+					vertex.setDistance(0);
+					vertex.setPredecessor(null);
+					
+					q.enQueue(vertex);
+					
+					while(!q.isEmpty()) {
+						//System.out.println("here");
+						Vertex u=q.deQueue();
+						int i=u.getEdgeCount();
+						
+						while(i!=0) {
+							
+							Vertex v=u.getNextVertex();
+							
+							if(v.getColor().equals("WHITE")) {
+								v.setColor("GRAY");
+								v.setDistance(u.getDistance()+1);
+								v.setPredecessor(u);
+								q.enQueue(v);
+							}
+							i--;
+							
+						}
+						System.out.println(u.getValue()+"\n");
+						u.setColor("BLACK");
+						
+					}
+					
+				}
+			}
+			
+		}else {
+			System.out.println("No vertices on the graph");
+		}
+	}
 }
