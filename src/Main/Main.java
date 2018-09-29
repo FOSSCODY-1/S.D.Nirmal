@@ -21,6 +21,7 @@ public class Main {
     public static void main(String args[]){
     	
     	Graph graph=new Graph();
+    	
     //adding vertices to the graph	
     	
     	graph.addVertex(1);
@@ -29,9 +30,12 @@ public class Main {
     	graph.addVertex(4);
     	graph.addVertex(5);
     	
-    	//graph.displayVertices();
+    	System.out.println("Vertices in the graph\n");
+    	graph.displayVertices();
+    	System.out.println("______________________________________________________");
     	
-    //creating pahts between graphs
+    //creating paths between graphs
+    	
     	
     	graph.addEdge(1, 2);
     	graph.addEdge(1, 4);
@@ -39,13 +43,19 @@ public class Main {
     	graph.addEdge(3, 2);
     	graph.addEdge(4, 5);
     	
-    	//graph.displayEdges();
+    	System.out.println("Edges in the graph\n");
+    	graph.displayEdges();
+    	System.out.println("______________________________________________________");
     	
     //breadth first traversal	
-    	//graph.breadthFirstTraversal();
+    	System.out.println("Breadth First Traversal\n");
+    	graph.breadthFirstTraversal();
+    	System.out.println("______________________________________________________");
     	
     //Depth first traversal
+    	System.out.println("Depth First Traversal\n");
     	graph.callDepthFirstTraversal();
+    	System.out.println("______________________________________________________");
     	
     	
     }

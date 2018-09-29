@@ -4,10 +4,12 @@
 Contains 2 packages
 	-Main
 	-Tool
+
 Main package contains 3 classes
 	-Main.java
 	-Graph.java
 	-Vertex.java
+
 Tool package contains 1 class
 	-Queue.java
 
