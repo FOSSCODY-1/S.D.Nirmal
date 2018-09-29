@@ -1,4 +1,4 @@
-package Graph;
+package Main;
 
 public class Vertex {
 	private int value;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import javax.sound.midi.Soundbank;
 
-import Graph.Vertex;
 import Tool.Queue;
 
 public class Graph {
@@ -128,9 +127,15 @@ public class Graph {
 						int i=u.getEdgeCount();
 						
 						while(i!=0) {
+<<<<<<< HEAD
 							
 							Vertex v=u.getNextVertex();
 							
+=======
+							
+							Vertex v=u.getNextVertex();
+							
+>>>>>>> parent of 7a75513... completed depth first traversal
 							if(v.getColor().equals("WHITE")) {
 								v.setColor("GRAY");
 								v.setDistance(u.getDistance()+1);
@@ -147,6 +152,7 @@ public class Graph {
 					
 				}
 			}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	}
@@ -187,6 +193,11 @@ public class Graph {
 			System.out.print(u.getEndTime()+"\t");
 			System.out.println();
 			
+=======
+			
+		}else {
+			System.out.println("No vertices on the graph");
+>>>>>>> parent of 7a75513... completed depth first traversal
 =======
 			
 		}else {
