@@ -148,6 +148,7 @@ public class Graph {
 				}
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	}
 
 
@@ -186,6 +187,11 @@ public class Graph {
 			System.out.print(u.getEndTime()+"\t");
 			System.out.println();
 			
+=======
+			
+		}else {
+			System.out.println("No vertices on the graph");
+>>>>>>> parent of 7a75513... completed depth first traversal
 =======
 			
 		}else {
