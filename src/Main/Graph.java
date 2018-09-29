@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import javax.sound.midi.Soundbank;
 
+import Graph.Vertex;
 import Tool.Queue;
 
 public class Graph {
 	
 	private ArrayList<Vertex> levels=new ArrayList<>();
 	Queue<Vertex> q=new Queue<>();
+	private static int time=0;
 	
 	
 	public void addVertex(int value) {
@@ -154,6 +156,7 @@ public class Graph {
 
 
 	public void callDepthFirstTraversal() {
+		time=0;
 		for (Vertex vertex : levels) {
 			vertex.setColor("WHITE");
 			vertex.setDistance(0);
@@ -166,11 +169,11 @@ public class Graph {
 		}
 	}
 
-	private void DepthFirstTraversal(Vertex u) {
-	
+	private static void DepthFirstTraversal(Vertex u) {
+		
 		if(!u.getColor().equals("BLACK")) {
 			u.setColor("GRAY");
-			
+			u.setStartTime(++time);
 			int i=u.getEdgeCount();
 			while(i!=0) {
 				Vertex v=u.getNextVertex();
@@ -181,7 +184,12 @@ public class Graph {
 				i--;
 			}
 			u.setColor("BLACK");
-			System.out.println(u.getValue()+"\t");
+			u.setEndTime(++time);
+			System.out.print(u.getValue()+"\t");
+			System.out.print(u.getStartTime()+"\t");
+			System.out.print(u.getEndTime()+"\t");
+			System.out.println();
+			
 		}
 	}
 }
