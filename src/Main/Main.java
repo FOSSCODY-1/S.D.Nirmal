@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Main;
+import java.nio.channels.CancelledKeyException;
 import java.util.Scanner;
 
 
@@ -20,14 +21,17 @@ public class Main {
     public static void main(String args[]){
     	
     	Graph graph=new Graph();
-    		
+    //adding vertices to the graph	
+    	
     	graph.addVertex(1);
     	graph.addVertex(2);
     	graph.addVertex(3);
     	graph.addVertex(4);
     	graph.addVertex(5);
     	
-    	graph.displayVertices();    	
+    	//graph.displayVertices();
+    	
+    //creating pahts between graphs
     	
     	graph.addEdge(1, 2);
     	graph.addEdge(1, 4);
@@ -36,8 +40,13 @@ public class Main {
     	graph.addEdge(4, 5);
     	
     	//graph.displayEdges();
-    	//graph.displayVertices();
-    	graph.breadthFirstTraversal();
+    	
+    //breadth first traversal	
+    	//graph.breadthFirstTraversal();
+    	
+    //Depth first traversal
+    	graph.callDepthFirstTraversal();
+    	
     	
     }
 }

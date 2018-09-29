@@ -12,7 +12,6 @@ public class Graph {
 	Queue<Vertex> q=new Queue<>();
 	private static int time=0;
 	
-	
 	public void addVertex(int value) {
 		Vertex vertex=new Vertex();
 		vertex.setColor("white");
@@ -46,14 +45,12 @@ public class Graph {
 			while(i!=0) {
 				temp=temp.getNextVertex();   
 				if(temp.equals(l)) {
-					//System.out.println(v.getValue()+","+l.getValue()+"\n");
 					System.out.println("Edge already exists");
 					return;
 				}
 				i--;
 				
 			}
-			//System.out.println(v.getValue()+","+l.getValue()+"\n");
 			temp.setNextVertex(l);
 			v.setEdgeCount(v.getEdgeCount()+1);
 			
@@ -98,6 +95,7 @@ public class Graph {
 		if(levels.isEmpty()) {
 			System.out.println("No vertices on the graph yet");
 			return;
+
 		}
 		for (Vertex vertex : levels) {
 			System.out.println(vertex.getValue()+"\n");
@@ -105,61 +103,55 @@ public class Graph {
 	}
 	
 	public void breadthFirstTraversal() {
-		if(levels!=null) {
-			for (Vertex vertex : levels) {
-				vertex.setColor("WHITE");
-				vertex.setDistance(0);
-				vertex.setPredecessor(null);
-			}
-			for (Vertex vertex : levels) {
-				
-				if(!vertex.getColor().equals("BLACK")){
-					
-					vertex.setColor("GRAY");
+			if(levels!=null) {
+				for (Vertex vertex : levels) {
+					vertex.setColor("WHITE");
 					vertex.setDistance(0);
 					vertex.setPredecessor(null);
+				}
+				for (Vertex vertex : levels) {
 					
-					q.enQueue(vertex);
-					
-					while(!q.isEmpty()) {
-						//System.out.println("here");
-						Vertex u=q.deQueue();
-						int i=u.getEdgeCount();
+					if(!vertex.getColor().equals("BLACK")){
 						
-						while(i!=0) {
-<<<<<<< HEAD
+						vertex.setColor("GRAY");
+						vertex.setDistance(0);
+						vertex.setPredecessor(null);
+						
+						q.enQueue(vertex);
+						
+						while(!q.isEmpty()) {
+							//System.out.println("here");
+							Vertex u=q.deQueue();
+							int i=u.getEdgeCount();
 							
-							Vertex v=u.getNextVertex();
-							
-=======
-							
-							Vertex v=u.getNextVertex();
-							
->>>>>>> parent of 7a75513... completed depth first traversal
-							if(v.getColor().equals("WHITE")) {
-								v.setColor("GRAY");
-								v.setDistance(u.getDistance()+1);
-								v.setPredecessor(u);
-								q.enQueue(v);
+							while(i!=0) {
+								
+								Vertex v=u.getNextVertex();
+								
+								if(v.getColor().equals("WHITE")) {
+									v.setColor("GRAY");
+									v.setDistance(u.getDistance()+1);
+									v.setPredecessor(u);
+									q.enQueue(v);
+								}
+								i--;
+								
 							}
-							i--;
+							System.out.println(u.getValue()+"\t");
+							u.setColor("BLACK");
 							
 						}
-						System.out.println(u.getValue()+"\n");
-						u.setColor("BLACK");
 						
 					}
-					
 				}
+				
+			}else {
+				System.out.println("No vertices on the graph");
 			}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	}
 
 
 	public void callDepthFirstTraversal() {
-		time=0;
 		for (Vertex vertex : levels) {
 			vertex.setColor("WHITE");
 			vertex.setDistance(0);
@@ -172,8 +164,8 @@ public class Graph {
 		}
 	}
 
-	private static void DepthFirstTraversal(Vertex u) {
-		
+	private void DepthFirstTraversal(Vertex u) {
+	
 		if(!u.getColor().equals("BLACK")) {
 			u.setColor("GRAY");
 			u.setStartTime(++time);
@@ -188,26 +180,7 @@ public class Graph {
 			}
 			u.setColor("BLACK");
 			u.setEndTime(++time);
-			System.out.print(u.getValue()+"\t");
-			System.out.print(u.getStartTime()+"\t");
-			System.out.print(u.getEndTime()+"\t");
-			System.out.println();
-			
-=======
-			
-		}else {
-			System.out.println("No vertices on the graph");
->>>>>>> parent of 7a75513... completed depth first traversal
-=======
-			
-		}else {
-			System.out.println("No vertices on the graph");
->>>>>>> parent of 7a75513... completed depth first traversal
-=======
-			
-		}else {
-			System.out.println("No vertices on the graph");
->>>>>>> parent of 7a75513... completed depth first traversal
+			System.out.println("Vertex :" +u.getValue()+"\tStart time : "+u.getStartTime()+"\tEnd Time : "+u.getEndTime());
 		}
 	}
 }
