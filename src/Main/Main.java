@@ -37,9 +37,7 @@ public class Main {
     	
     	//graph.displayEdges();
     	//graph.displayVertices();
-    	//graph.breadthFirstTraversal();
-    	graph.callDepthFirstTraversal();
-    	
+    	graph.breadthFirstTraversal();
     	
     }
 }

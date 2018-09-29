@@ -7,8 +7,7 @@ public class Vertex {
 	private Vertex predecessor;
 	private int distance;
 	private int edgeCount=0;
-	private int startTime;
-	private int endTime;
+	
 	
 
 
@@ -18,8 +17,7 @@ public class Vertex {
 
 
 
-	public Vertex(int value, Vertex nextVertex, String color, Vertex predecessor, int distance, int edgeCount,
-			int startTime, int endTime) {
+	public Vertex(int value, Vertex nextVertex, String color, Vertex predecessor, int distance, int edgeCount) {
 		super();
 		this.value = value;
 		this.nextVertex = nextVertex;
@@ -27,33 +25,6 @@ public class Vertex {
 		this.predecessor = predecessor;
 		this.distance = distance;
 		this.edgeCount = edgeCount;
-		this.startTime = startTime;
-		this.endTime = endTime;
-	}
-
-
-
-
-	public int getStartTime() {
-		return startTime;
-	}
-
-
-
-	public void setStartTime(int startTime) {
-		this.startTime = startTime;
-	}
-
-
-
-	public int getEndTime() {
-		return endTime;
-	}
-
-
-
-	public void setEndTime(int endTime) {
-		this.endTime = endTime;
 	}
 
 

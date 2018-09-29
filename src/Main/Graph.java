@@ -99,7 +99,6 @@ public class Graph {
 		if(levels.isEmpty()) {
 			System.out.println("No vertices on the graph yet");
 			return;
-
 		}
 		for (Vertex vertex : levels) {
 			System.out.println(vertex.getValue()+"\n");
@@ -107,51 +106,48 @@ public class Graph {
 	}
 	
 	public void breadthFirstTraversal() {
-			if(levels!=null) {
-				for (Vertex vertex : levels) {
-					vertex.setColor("WHITE");
+		if(levels!=null) {
+			for (Vertex vertex : levels) {
+				vertex.setColor("WHITE");
+				vertex.setDistance(0);
+				vertex.setPredecessor(null);
+			}
+			for (Vertex vertex : levels) {
+				
+				if(!vertex.getColor().equals("BLACK")){
+					
+					vertex.setColor("GRAY");
 					vertex.setDistance(0);
 					vertex.setPredecessor(null);
-				}
-				for (Vertex vertex : levels) {
 					
-					if(!vertex.getColor().equals("BLACK")){
+					q.enQueue(vertex);
+					
+					while(!q.isEmpty()) {
+						//System.out.println("here");
+						Vertex u=q.deQueue();
+						int i=u.getEdgeCount();
 						
-						vertex.setColor("GRAY");
-						vertex.setDistance(0);
-						vertex.setPredecessor(null);
-						
-						q.enQueue(vertex);
-						
-						while(!q.isEmpty()) {
-							//System.out.println("here");
-							Vertex u=q.deQueue();
-							int i=u.getEdgeCount();
+						while(i!=0) {
 							
-							while(i!=0) {
-								
-								Vertex v=u.getNextVertex();
-								
-								if(v.getColor().equals("WHITE")) {
-									v.setColor("GRAY");
-									v.setDistance(u.getDistance()+1);
-									v.setPredecessor(u);
-									q.enQueue(v);
-								}
-								i--;
-								
+							Vertex v=u.getNextVertex();
+							
+							if(v.getColor().equals("WHITE")) {
+								v.setColor("GRAY");
+								v.setDistance(u.getDistance()+1);
+								v.setPredecessor(u);
+								q.enQueue(v);
 							}
-							System.out.println(u.getValue()+"\t");
-							u.setColor("BLACK");
+							i--;
 							
 						}
+						System.out.println(u.getValue()+"\n");
+						u.setColor("BLACK");
 						
 					}
+					
 				}
-				
-			}else {
-				System.out.println("No vertices on the graph");
 			}
+<<<<<<< HEAD
 	}
 
 
@@ -190,6 +186,11 @@ public class Graph {
 			System.out.print(u.getEndTime()+"\t");
 			System.out.println();
 			
+=======
+			
+		}else {
+			System.out.println("No vertices on the graph");
+>>>>>>> parent of 7a75513... completed depth first traversal
 		}
 	}
 }
